@@ -5,15 +5,19 @@ import (
 
 	"github.com/gin-gonic/gin"  // Importa o pacote gin para criar manipuladores de rotas
 	"localhost.com/GoLab/model" // Importa o pacote model do projeto para acessar o modelo Product
+	"localhost.com/GoLab/usecase"
 )
 
 // Define a estrutura productController, que será usada para agrupar os métodos do controlador de produtos
 type productController struct {
+	productUseCase usecase.ProductUseCase
 }
 
 // NewProductController cria uma nova instância de productController
-func NewProductController() *productController {
-	return &productController{}
+func NewProductController(usecase usecase.ProductUseCase) productController {
+	return productController{
+		productUseCase: usecase,
+	}
 	// Retorna uma nova instância de productController
 }
 

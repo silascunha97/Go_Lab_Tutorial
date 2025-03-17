@@ -3,6 +3,8 @@ package main
 import (
 	"github.com/gin-gonic/gin" // Importa o pacote gin, que é um framework web para Go
 	"localhost.com/GoLab/controller"
+	"localhost.com/GoLab/db"
+	"localhost.com/GoLab/repository"
 	"localhost.com/GoLab/usecase"
 )
 
@@ -16,9 +18,21 @@ func main() {
 	server := gin.Default()
 	// Cria uma nova instância do servidor Gin com as configurações padrão
 
-	ProductUseCase := usecase.NewProductUsecase()
-	// Cria uma nova instância de ProductUsecase
+	dbConnection, err := db.ConnectDB() // Conecta ao banco de dados
+	if err != nil {
+		// Se ocorrer um erro ao conectar ao banco de dados
+		panic(err)
+		// Encerra o programa e exibe o erro
 
+	}
+
+	//camada usecase
+	ProductRepository := repository.NewProductRepository(dbConnection)
+
+	// Cria uma nova instância de ProductRepository passando a conexão com o banco de dados como parâmetro
+	ProductUseCase := usecase.NewProductUsecase(ProductRepository)
+
+	// Cria uma nova instância de ProductUsecase
 	ProductController := controller.NewProductController(ProductUseCase)
 	// Cria uma nova instância de ProductController passando ProductUsecase como parâmetro
 

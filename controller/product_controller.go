@@ -1,11 +1,11 @@
 package controller
 
 import (
+	"localhost/Go-Lab-API/usecase"
 	"net/http" // Importa o pacote net/http para lidar com códigos de status HTTP
 
 	"github.com/gin-gonic/gin" // Importa o pacote gin para criar manipuladores de rotas
 	// Importa o pacote model do projeto para acessar o modelo Product
-	"localhost.com/GoLab/usecase"
 )
 
 // Define a estrutura productController, que será usada para agrupar os métodos do controlador de produtos

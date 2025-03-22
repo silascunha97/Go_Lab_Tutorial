@@ -5,7 +5,7 @@ import (
 
 	"database/sql" // Importa o pacote sql para trabalhar com bancos de dados SQL
 
-	"localhost.com/GoLab/model" // Importa o pacote model que contém a definição do modelo Product
+	"localhost/Go-Lab-API/model" // Importa o pacote model que contém a definição do modelo Product
 )
 
 // Define a estrutura ProductRepository que contém uma conexão com o banco de dados
@@ -29,7 +29,7 @@ func (pr *ProductRepository) GetProducts() ([]model.Product, error) {
 	rows, err := pr.connection.Query(query)
 	if err != nil {
 		// Se houver um erro na execução da consulta, imprime o erro e retorna uma lista vazia e o erro
-		fmt.Printf(err.Error())
+		fmt.Printf("%s", err.Error())
 		return []model.Product{}, err
 	}
 
@@ -48,7 +48,7 @@ func (pr *ProductRepository) GetProducts() ([]model.Product, error) {
 
 		if err != nil {
 			// Se houver um erro ao escanear a linha, imprime o erro e retorna uma lista vazia e o erro
-			fmt.Printf(err.Error())
+			fmt.Printf("%s", err.Error())
 			return []model.Product{}, err
 		}
 

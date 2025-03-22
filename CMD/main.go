@@ -1,11 +1,12 @@
 package main
 
 import (
+	"localhost/Go-Lab-API/controller"
+	"localhost/Go-Lab-API/db"
+	"localhost/Go-Lab-API/repository"
+	"localhost/Go-Lab-API/usecase"
+
 	"github.com/gin-gonic/gin" // Importa o pacote gin, que é um framework web para Go
-	"localhost.com/GoLab/controller"
-	"localhost.com/GoLab/db"
-	"localhost.com/GoLab/repository"
-	"localhost.com/GoLab/usecase"
 )
 
 type productController struct {

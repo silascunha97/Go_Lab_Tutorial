@@ -1,8 +1,8 @@
 package usecase
 
 import (
-	"localhost.com/GoLab/model"
-	"localhost.com/GoLab/repository"
+	"localhost/Go-Lab-API/model"
+	"localhost/Go-Lab-API/repository"
 )
 
 // Define a estrutura ProductUseCase, que será usada para agrupar os métodos do caso de uso de produtos
